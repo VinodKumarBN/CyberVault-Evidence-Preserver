@@ -7,6 +7,13 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv("GEMINI_API_KEY")
+
 
 def process_evidence(target_url, uploaded_file):
     if not target_url or not uploaded_file:
