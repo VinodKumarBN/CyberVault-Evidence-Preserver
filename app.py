@@ -11,7 +11,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+port_env = int(os.environ.get("PORT", 7860))
 api_key = os.getenv("GEMINI_API_KEY")
 
 
@@ -95,4 +95,4 @@ with gr.Blocks(title="CyberVault Pro") as demo:
     submit_btn.click(fn=process_evidence, inputs=[url_input, file_input], outputs=[output_status, output_file])
 
 if __name__ == "__main__":
-    demo.launch(server_port=8501)
+    demo.launch(server_name="0.0.0.0", server_port=port_env)
